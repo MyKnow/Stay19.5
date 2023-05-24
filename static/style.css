@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'aGoEunGeulCciM';
+    src: url("./fonts/aGoEunGeulCciM.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'NanumGothic';
+    src: url("./fonts/NanumGothic.woff") format('woff');
+}
+
+body {
+    background-color: #FFFFFF;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    color: #81C6DF;
+    font-size: 20px;
+    font-family: 'aGoEunGeulCciM';
+    margin-top: 0;
+    margin-left: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo {
+    width: 130px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.subtitle {
+    color: black;
+    text-align: center;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.title {
+    color: black;
+    text-align: center;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    font-size: 40px;
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px); /* Subtract the margin value from the width */
+    height: 40px; /* Increase the height for a taller button */
+    background-color: #FBE000;
+    border: none;
+    border-radius: 30px;
+}
+
+.login-button-text {
+    font-family: 'NanumGothic', sans-serif;
+    font-size: 16px; /* Adjust the font size as desired */
+    font-weight: bold;
+    color: #000000;
+    line-height: 1;
+    padding: 0 20px; /* Add padding to create space around the text */
+}
+
+
+
+.navbar_front {
+            background-color : #DF938D
+            border: none;
+        }
+
+.navbar-brand {
+    color: white;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    font-size: 20px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.description {
+    background-color: #DF938D;
+    color: #FFFFFF;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    overflow: hidden;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #D9D9D9;
+    border-radius: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin: 10px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card-title {
+    color: #DF938D;
+    font-family: 'NanumGothic', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+.card-description {
+    color: #000000;
+    font-family: 'NanumGothic', sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.usage {
+    margin-left: 10px;
+}
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+}
+
+.nav-link img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}

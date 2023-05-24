@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <style>
+        body {
+                background-image: url("{% static 'images/login/backimage.png' %}");
+                background-size: cover;
+                padding: 20px;
+                font-family: 'aGoEunGeulCciM';
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="{%static 'images/login/login_images.png' %}" alt = "로고" class = "logo">
+            </div>
+            <div class="col-12">
+                <div class="subtitle">네 컷 사진 집합 서비스</div>
+                <div class="title">STAY 19.5</div>
+                <a href="#" class="login-button">
+                    <span class = "login-button-text">카카오로 로그인</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

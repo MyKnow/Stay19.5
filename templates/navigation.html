@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <title>Navigation Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+    <style>
+        body {
+            background-color: white;
+            padding-bottom: 60px;
+            font-family: 'NanumGothic', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="nav-link" href="#">
+            <img src="{% static 'images/font/aGoEunGeulCciM.ttf' %}" alt="Main">      /*주소 바꾸기*/
+            메인
+        </a>
+        <a class="nav-link" href="#">
+            <img src="images/map.png" alt="Map">        /*주소 바꾸기*/
+            지도
+        </a>
+        <a class="nav-link" href="#">
+            <img src="images/upload.png" alt="Upload">  /*주소 바꾸기*/
+            업로드
+        </a>
+        <a class="nav-link" href="#">
+            <img src="images/gallery.png" alt="Gallery">/*주소 바꾸기*/
+            갤러리
+        </a>
+        <a class="nav-link" href="#">
+            <img src="images/my.png" alt="My">          /*주소 바꾸기*/
+            MY
+        </a>
+    </nav>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

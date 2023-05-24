@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>이미지 업로드</title>
+  </head>
+  <body>
+    <h2>이미지 업로드</h2>
+      <form action="{% url 'upload_image' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="image" accept="image/*" />
+      <br /><br />
+      <label for="number_input">숫자 입력:</label>
+      <input type="number" id="number_input" name="variable" />
+      <br /><br />
+      <input type="submit" value="업로드" />
+    </form>
+
+    <h2>업로드된 이미지</h2>
+    <!-- 업로드된 이미지를 보여주기 위한 이미지 태그 -->
+    <img id="uploadedImage" src="#" alt="업로드된 이미지" style="max-width: 500px; max-height: 500px; display: none;" />
+
+    <script>
+      // 파일 입력 필드의 변경 이벤트를 감지하여 이미지를 미리보기로 보여주는 함수
+      function previewImage(event) {
+        var input = event.target;
+        var reader = new FileReader();
+
+        reader.onload = function () {
+          var image = document.getElementById('uploadedImage');
+          image.src = reader.result;
+          image.style.display = 'block';
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+
+      // 파일 입력 필드에 변경 이벤트 리스너를 추가
+      var fileInput = document.querySelector('input[type="file"]');
+      fileInput.addEventListener('change', previewImage);
+    </script>
+  </body>
+</html>

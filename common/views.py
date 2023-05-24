@@ -6,3 +6,6 @@ def main(request):
 
 def login(request):
     return render(request, 'common/login.html')
+
+def info(request):
+    return render(request, 'common/info.html')

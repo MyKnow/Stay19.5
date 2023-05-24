@@ -7,10 +7,40 @@
     <title>Stay 19.5 | Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
 </head>
 <body>
+    <header>
+        <nav>
+            {% include "bar.html" %}
+        </nav>
+    </header>
+
+    <footer>
+        <nav class="navbar">
+            <a class="nav-link" href="/main">
+                <img src="{% static 'images/navigation/home.png' %}" alt="Main">
+                메인
+            </a>
+            <a class="nav-link nav-color" href="/map">
+                <img src="{% static 'images/navigation/marker (1).png' %}" alt="Map">
+                지도
+            </a>
+            <a class="nav-link" href="/upload">
+                <img src="{% static 'images/navigation/camera.png' %}" alt="Upload">
+                업로드
+            </a>
+            <a class="nav-link" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image.png' %}" alt="Gallery">
+                갤러리
+            </a>
+            <a class="nav-link" href="/info">
+                <img src="{% static 'images/navigation/user.png' %}" alt="My">
+                MY
+            </a>
+        </nav>
+    </footer>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

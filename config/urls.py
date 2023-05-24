@@ -19,11 +19,18 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 import common.views
+import map.views
+import qr.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', common.views.main, name='main'),
     path('login/', common.views.login, name='login'),
+    path('info/', common.views.info, name='info'),
+
+    path('map/', map.views.map, name='map'),
+
+    path('upload/', qr.views.upload, name='upload'),
 ]
 
 if settings.DEBUG:

@@ -10,16 +10,17 @@
 
 body {
     background-color: #FFFFFF;
-    font-family: 'aGoEunGeulCciM', sans-serif;
+    font-family: 'NanumGothic', sans-serif;
     padding: 10px;
+    min-height: 100vh;
 }
 
 h1 {
-    color: #81C6DF;
+    color: #A6A6A6;
     font-size: 20px;
     font-family: 'aGoEunGeulCciM';
-    margin-top: 0;
-    margin-left: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .container {
@@ -77,9 +78,9 @@ h1 {
 
 
 .navbar_front {
-            background-color : #DF938D
-            border: none;
-        }
+    background-image: linear-gradient(to top left, #D2D0D0, #D2A4A8);
+    border: none;
+}
 
 .navbar-brand {
     color: white;
@@ -130,6 +131,39 @@ h1 {
     margin-left: 10px;
 }
 
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding-bottom: 60px;
+    font-family: 'NanumGothic', sans-serif;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.nav-link.nav-color {
+    color: #DF938D;
+}
+
+.nav-link img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
 .usage {
     margin-left: 10px;
 }
@@ -143,6 +177,9 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: white;
+    padding-bottom: 60px;
+    font-family: 'NanumGothic', sans-serif;
 }
 
 .nav-link {
@@ -159,4 +196,65 @@ h1 {
     width: 20px;
     height: 20px;
     margin-bottom: 5px;
+}
+
+.profile-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 300px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name-box {
+    background-color: #D9D9D9;
+    padding: 20px 10px 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-box {
+    background-color: #D9D9D9;
+    padding: 20px 10px 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-button {
+    background-color: #DF938D;
+    color: white;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    border: none;
+    padding: 10px 10px 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

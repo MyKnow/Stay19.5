@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Stay 19.5 | Upload</title>
+    <title>Stay 19.5 | Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'style.css' %}?after">
@@ -17,7 +17,7 @@
         </nav>
     </header>
 
-
+    <img class="photo-image" src="{% static 'images/ex/1.jpg' %}" alt="Image">                                          <!-- 이미지 고칠거 -->
 
     <footer>
         <nav class="navbar">
@@ -29,12 +29,12 @@
                 <img src="{% static 'images/navigation/marker.png' %}" alt="Map">
                 지도
             </a>
-            <a class="nav-link nav-color" href="/upload">
-                <img src="{% static 'images/navigation/camera (1).png' %}" alt="Upload">
+            <a class="nav-link" href="/upload">
+                <img src="{% static 'images/navigation/camera.png' %}" alt="Upload">
                 업로드
             </a>
-            <a class="nav-link" href="/gallery">
-                <img src="{% static 'images/navigation/copy-image.png' %}" alt="Gallery">
+            <a class="nav-link  nav-color" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image (1).png' %}" alt="Gallery">
                 갤러리
             </a>
             <a class="nav-link" href="/info">

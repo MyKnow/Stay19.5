@@ -31,6 +31,12 @@ h1 {
     text-align: center;
 }
 
+.usage {
+    margin-left: 10px;
+}
+
+/* ===========================  login css  ============================== */
+
 .logo {
     width: 130px;
     height: 150px;
@@ -59,8 +65,8 @@ h1 {
     margin-top: 30px;
     margin-left: 20px;
     margin-right: 20px;
-    width: calc(100% - 40px); /* Subtract the margin value from the width */
-    height: 40px; /* Increase the height for a taller button */
+    width: calc(100% - 40px);
+    height: 40px;
     background-color: #FBE000;
     border: none;
     border-radius: 30px;
@@ -68,29 +74,14 @@ h1 {
 
 .login-button-text {
     font-family: 'NanumGothic', sans-serif;
-    font-size: 16px; /* Adjust the font size as desired */
+    font-size: 16px;
     font-weight: bold;
     color: #000000;
     line-height: 1;
-    padding: 0 20px; /* Add padding to create space around the text */
+    padding: 0 20px;
 }
 
-
-
-.navbar_front {
-    background-image: linear-gradient(to top left, #D2D0D0, #D2A4A8);
-    border: none;
-}
-
-.navbar-brand {
-    color: white;
-    font-family: 'aGoEunGeulCciM', sans-serif;
-    font-size: 20px;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    height: 60px;
-}
+/* ===========================  main css  ================================ */
 
 .description {
     background-color: #DF938D;
@@ -131,6 +122,23 @@ h1 {
     margin-left: 10px;
 }
 
+/* ============================  navigation css  =============================== */
+
+.navbar_front {
+    background-image: linear-gradient(to top left, #D2D0D0, #D2A4A8);
+    border: none;
+}
+
+.navbar-brand {
+    color: white;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    font-size: 24px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
 .navbar {
     position: fixed;
     bottom: 0;
@@ -152,6 +160,7 @@ h1 {
     align-items: center;
     text-decoration: none;
     font-size: 12px;
+    color: black;
 }
 
 .nav-link.nav-color {
@@ -164,39 +173,8 @@ h1 {
     margin-bottom: 5px;
 }
 
-.usage {
-    margin-left: 10px;
-}
+/* =============================  info css  ================================ */
 
-.navbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background-color: white;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
-    padding-bottom: 60px;
-    font-family: 'NanumGothic', sans-serif;
-}
-
-.nav-link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    font-size: 12px;
-}
-
-.nav-link img {
-    width: 20px;
-    height: 20px;
-    margin-bottom: 5px;
-}
 
 .profile-container {
     text-align: center;
@@ -257,4 +235,73 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* =================================  지도 css  ======================== */
+
+.location {
+    background-color: #D9D9D9;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+
+}
+
+.map {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    height:100vh
+}
+
+/* ==================================  업로드css  ======================== */
+
+
+/* ==================================  갤러리css  ======================== */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.btn-gallery {
+    background-color: #DF938D;
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.btn-gallery i {
+    margin-right: 5px;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.gallery-image {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    object-fit: cover;
+}
+
+.photo-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.ai-image {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 50%;
 }

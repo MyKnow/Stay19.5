@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 import common.views
 import map.views
 import qr.views
+import gallery.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +32,11 @@ urlpatterns = [
     path('map/', map.views.map, name='map'),
 
     path('upload/', qr.views.upload, name='upload'),
+
+    path('gallery/', gallery.views.gallery, name='gallery'),
+    path('photo/', gallery.views.photo, name='photo'),
+    path('gallery/ai', gallery.views.ai_gallery, name='ai gallery'),
+    path('photo/ai', gallery.views.photo, name='ai photo'),
 ]
 
 if settings.DEBUG:

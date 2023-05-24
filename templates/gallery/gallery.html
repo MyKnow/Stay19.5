@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Stay 19.5 | Infomation</title>
+    <title>Stay 19.5 | Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'style.css' %}?after">
@@ -17,16 +17,21 @@
         </nav>
     </header>
 
-    <div class="container">
-        <div class="profile-container">
-            <img src="{% static 'images/basic_profile.png' %}" alt="프로필 사진" class="profile-image">                   <!--프로필 사진 카카오톡 프사로 바꾸기-->
-            <div class="name-box">
-                <h4>홍길동</h4>                                                                                          <!--유저 네임 바꾸기-->
+    <div class="container-fluid gallery-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-right">
+                    <a class="btn btn-gallery" href="/gallery/ai">
+                        AI GALLERY <img src="{% static 'images/smile.png' %}">
+                    </a>
+                </div>
+                <div class="gallery-images">                                                                            <!-- 이미지 고칠거 -->
+                    <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/1.jpg' %}" alt="Image 1"></a>
+                    <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/2.jpg' %}" alt="Image 2"></a>
+                    <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/3.jpg' %}" alt="Image 3"></a>
+                    <!-- Add more image elements here -->
+                </div>
             </div>
-            <div class="email-box">
-                <p>example@example.com</p>                                                                              <!--카카오톡 계정 이메일 주소로 바꾸기-->
-            </div>
-            <a class="logout-button" href="/login">로그아웃</a>                                                           <!--로그아웃 링크-->
         </div>
     </div>
 
@@ -44,12 +49,12 @@
                 <img src="{% static 'images/navigation/camera.png' %}" alt="Upload">
                 업로드
             </a>
-            <a class="nav-link" href="/gallery">
-                <img src="{% static 'images/navigation/copy-image.png' %}" alt="Gallery">
+            <a class="nav-link  nav-color" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image (1).png' %}" alt="Gallery">
                 갤러리
             </a>
-            <a class="nav-link nav-color" href="/info">
-                <img src="{% static 'images/navigation/user (1).png' %}" alt="My">
+            <a class="nav-link" href="/info">
+                <img src="{% static 'images/navigation/user.png' %}" alt="My">
                 MY
             </a>
         </nav>

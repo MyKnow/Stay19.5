@@ -1,0 +1,169 @@
+/* 공통 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+    font-size: 12px;
+  }
+
+  /* 지도 */
+  #map {
+    width:100%;
+    height:75vh;
+    position:relative;
+    overflow:hidden;
+    object-fit:cover;
+  }
+
+  
+  /* 카테고리 */
+  #keyword {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    border: 1px solid #909090;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    background: #fff;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  #keyword li {
+    float: left;
+    list-style: none;
+    width: 50px;
+    border-right: 1px solid #acacac;
+    padding: 6px 0;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  #keyword li.on {
+    background: #eee;
+  }
+  
+  #keyword li:hover {
+    background: #ffe6e6;
+    border-left: 1px solid #acacac;
+    margin-left: -1px;
+  }
+  
+  #keyword li:last-child {
+    margin-right: 0;
+    border-right: 0;
+  }
+  
+  #keyword li span {
+    display: block;
+    margin: 0 auto 3px;
+    width: 27px;
+    height: 28px;
+  }
+  
+  #keyword li .keyword_bg {
+    background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
+  }
+  
+  #keyword li .bank {
+    background-position: -10px 0;
+  }
+  
+  #keyword li .mart {
+    background-position: -10px -36px;
+  }
+  
+  #keyword li .pharmacy {
+    background-position: -10px -72px;
+  }
+  
+  #keyword li .oil {
+    background-position: -10px -108px;
+  }
+  
+  #keyword li .cafe {
+    background-position: -10px -144px;
+  }
+  
+  #keyword li .store {
+    background-position: -10px -180px;
+  }
+  
+  #keyword li.on .keyword_bg {
+    background-position-x: -46px;
+  }
+  
+  /* 장소 정보 */
+  .placeinfo_wrap {
+    position: absolute;
+    bottom: 28px;
+    left: -150px;
+    width: 300px;
+  }
+  
+  .placeinfo {
+    position: relative;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    background: #fff;
+  }
+  
+  .placeinfo:nth-of-type(n) {
+    border: 0;
+    box-shadow: 0px 1px 2px #888;
+  }
+  
+  .placeinfo_wrap .after {
+    content: '';
+    position: relative;
+    margin-left: -12px;
+    left: 50%;
+    width: 22px;
+    height: 12px;
+    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png');
+  }
+  
+  .placeinfo a,
+  .placeinfo a:hover,
+  .placeinfo a:active {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .placeinfo a,
+  .placeinfo span {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .placeinfo span {
+    margin: 5px;
+    cursor: default;
+    font-size: 13px;
+  }
+  
+  .placeinfo .title {
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 6px;
+    margin: -1px;
+    padding: 10px;
+    color: #fff;
+    background: #d95050 url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png') no-repeat right 14px center;
+  }
+  
+  .placeinfo .tel {
+    color: #0f7833;
+  }
+  
+  .placeinfo .jibun {
+    color: #999;
+    font-size: 11px;
+    margin-top: 0;
+  }
+  

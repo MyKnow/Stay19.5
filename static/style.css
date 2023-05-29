@@ -38,8 +38,8 @@ h1 {
 /* ===========================  login css  ============================== */
 
 .logo {
-    width: 130px;
-    height: 150px;
+    width: 250px;
+    height: 290px;
     object-fit: cover;
 }
 
@@ -263,13 +263,14 @@ h1 {
 
 }
 
-.map {
-    background-color: black;
-    color: white;
-    padding: 20px;
+.map_container {
     text-align: center;
-    height: calc(100vh - 120px);
-    overflow: hidden;
+    height:100%;
+    position:relative;
+}
+
+.map_wrap {
+    height:80vh;
 }
 
 /* ==================================  업로드css  ======================== */

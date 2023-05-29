@@ -127,28 +127,30 @@ h1 {
 
 .navbar_front {
     background-image: linear-gradient(to top, #E1BEBB, #DF938D);
+    height: 60px;
     border: none;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 10px;
 }
 
-.navbar-brand {
-    color: white;
-    font-family: 'aGoEunGeulCciM', sans-serif;
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    line-height: 1.2;
+.nav-logo {
+    height: 50px;
+    display: block;
+    margin: 0 auto;
 }
 
-.dotted-line {
+.dotted-line-left {
+    border-top: 4px dotted white;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.dotted-line-right {
     border-top: 4px dotted white;
     flex-grow: 1;
     margin-left: 10px;
-    margin-right: 10px;
 }
 
 .navbar {
@@ -279,6 +281,7 @@ h1 {
     display: flex;
     justify-content: center;
     padding: 20px;
+    margin-top : 20px;
 }
 
 .btn-gallery {
@@ -314,8 +317,8 @@ h1 {
 }
 
 .ai-image {
-    width: 200px;
-    height: 200px;
+    width: 90px;
+    height: 90px;
     margin: 10px;
     object-fit: cover;
     border-radius: 50%;

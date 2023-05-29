@@ -11,7 +11,6 @@
 body {
     background-color: #FFFFFF;
     font-family: 'NanumGothic', sans-serif;
-    padding: 10px;
     min-height: 100vh;
 }
 
@@ -293,33 +292,59 @@ h1 {
     font-weight: bold;
 }
 
-.btn-gallery i {
-    margin-right: 5px;
+.text-right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .gallery-images {
+    overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    max-height: calc(100vh - 210px);
+}
+
+.col-12.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-height: calc(100vh - 210px);
 }
 
 .gallery-image {
-    width: 90px;
-    height: 90px;
-    margin: 10px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
 }
 
 .photo-image {
     width: 100%;
     height: auto;
+    margin-top: 15px;
     object-fit: cover;
 }
 
 .ai-image {
     width: 90px;
     height: 90px;
-    margin: 10px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+/* ==================================  스크롤 바  ======================== */
+
+.gallery-images::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
+}
+
+.gallery-images::-webkit-scrollbar-track {
+  background-color: #D9D9D9; /* 스크롤바 트랙의 배경색 */
+  border-radius: 8px;
+}
+
+.gallery-images::-webkit-scrollbar-thumb {
+  background-color: #DF938D; /* 스크롤바 썸의 배경색 */
+  border-radius: 8px;
 }

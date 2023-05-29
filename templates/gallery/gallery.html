@@ -19,18 +19,16 @@
 
     <div class="container-fluid gallery-container">
         <div class="row">
-            <div class="col-12">
-                <div class="text-right">
-                    <a class="btn btn-gallery" href="/gallery/ai">
-                        AI GALLERY <img src="{% static 'images/smile.png' %}">
-                    </a>
-                </div>
-                <div class="gallery-images">                                                                            <!-- 이미지 고칠거 -->
-                    <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/1.jpg' %}" alt="Image 1"></a>
-                    <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/2.jpg' %}" alt="Image 2"></a>
-                    <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/3.jpg' %}" alt="Image 3"></a>
-                    <!-- Add more image elements here -->
-                </div>
+            <div class="col-12 text-right">
+                <a class="btn btn-gallery" href="/gallery/ai">
+                    AI GALLERY <img src="{% static 'images/smile.png' %}">
+                </a>
+            </div>
+            <div class="col-12 gallery-images">                                                                         <!-- 이미지 고칠거 -->
+                <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/1.jpg' %}" alt="Image 1"></a>
+                <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/2.jpg' %}" alt="Image 2"></a>
+                <a href="/photo"><img class="gallery-image" src="{% static 'images/ex/3.jpg' %}" alt="Image 3"></a>
+                <!-- Add more image elements here -->
             </div>
         </div>
     </div>

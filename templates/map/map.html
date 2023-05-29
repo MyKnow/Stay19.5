@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'style.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}?after">
 
 </head>
 <body>
@@ -17,10 +18,37 @@
         </nav>
     </header>
 
-    <div class="location">경기 용인시 수지구 죽전동 1591</div>                                                               <!--현재 내 위치 받아오기-->
-    <div class="map">                                                                                                   <!--카카오 지도 api 불러오기-->
-        <h2>마이노 지도 해줘</h2>
-        <p>지도 넣어줘어어어어엉</p>
+    <div class="location">경기 용인시 수지구 죽전동 1591</div> 
+    <div class="map_container">
+        <div class="map_wrap">  
+            <div id="map"></div>
+                <ul id="keyword">
+                    <li id="하루필름" data-order="0"> 
+                        <span class="keyword_bg bank"></span>
+                        하루필름
+                    </li>       
+                    <li id="인생네컷" data-order="1"> 
+                        <span class="keyword_bg mart"></span>
+                        인생네컷
+                    </li>  
+                    <li id="포토이즘" data-order="2"> 
+                        <span class="keyword_bg pharmacy"></span>
+                        포토이즘
+                    </li>  
+                    <li id="모노맨션" data-order="3"> 
+                        <span class="keyword_bg oil"></span>
+                        모노맨션
+                    </li>  
+                    <li id="비룸스튜디오" data-order="4"> 
+                        <span class="keyword_bg cafe"></span>
+                        비룸스튜디오
+                    </li>  
+                    <li id="즉석사진" data-order="5"> 
+                        <span class="keyword_bg store"></span>
+                        즉석사진
+                    </li>
+                </ul>
+        </div>
     </div>
 
     <footer>
@@ -48,5 +76,7 @@
         </nav>
     </footer>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=aa4f2cb7ffd0e8ced07032bfa9361f57&libraries=services"></script>
+    <script src="/static/js/map.js"></script>  
 </body>
 </html>

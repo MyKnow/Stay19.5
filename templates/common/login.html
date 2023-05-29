@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 {% load static %}
 
 <head>
@@ -31,13 +31,42 @@
             <div class="col-12">
                 <div class="subtitle">네 컷 사진 집합 서비스</div>
                 <div class="title">STAY 19.5</div>
-                <a href="#" class="login-button">                                                                       <!--카카오로 로그인 링크 수정 해야 함-->
+                <a href="#" class="login-button" onclick="kakaoLogin()">                                                                       <!--카카오로 로그인 링크 수정 해야 함-->
                     <span class = "login-button-text">카카오로 로그인</span>
                 </a>
             </div>
         </div>
     </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('aa4f2cb7ffd0e8ced07032bfa9361f57'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+        success: function (response) {
+        Kakao.API.request({
+            url: '/v2/user/me',
+            success: function (response) {
+                console.log(response);
+                const { id, properties: { nickname, thumbnail_image,  account_email} } = response;
+                console.log(id);
+                console.log(nickname);
+                console.log(thumbnail_image);
+                console.log(account_email);
+                window.location.href = "/main";
+            },
+            fail: function (error) {
+                console.log(error)
+            },
+        })
+        },
+        fail: function (error) {
+            console.log(error)
+        },
+    })
+}
+</script>
 </body>
-
 </html>

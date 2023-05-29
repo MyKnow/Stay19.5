@@ -29,6 +29,7 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 100%;
 }
 
 .usage {
@@ -259,12 +260,14 @@ h1 {
 
 }
 
-.map {
-    background-color: black;
-    color: white;
-    padding: 20px;
+.map_container {
     text-align: center;
-    height:100vh
+    height:100%;
+    position:relative;
+}
+
+.map_wrap {
+    height:80vh;
 }
 
 /* ==================================  업로드css  ======================== */

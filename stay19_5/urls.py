@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', stay.views.index, name = 'index'),
     path('upload/', upload_image, name='upload_image'),
+
 ]

@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Uploaded Image</title>
 </head>
 <body>
 <h1>업로드 성공</h1>
+
+{% if image_addresses %}
+    <h2>이미지 주소</h2>
+    <ul>
+        {% for address in image_addresses %}
+            <li>{{ address }}</li>
+        {% endfor %}
+    </ul>
+    <!-- 이미지 표시 -->
+    {% for address in image_addresses %}
+        <img src="{{ address }}" alt="Image" width="500" height="auto">
+    {% endfor %}
+{% else %}
+    <p>이미지 주소가 없습니다.</p>
+{% endif %}
+
 </body>
 </html>

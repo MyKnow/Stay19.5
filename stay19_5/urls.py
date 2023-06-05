@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
 from stay import views
 from stay.views import upload_image
 
@@ -26,5 +27,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', stay.views.index, name = 'index'),
     path('upload/', upload_image, name='upload_image'),
-
 ]

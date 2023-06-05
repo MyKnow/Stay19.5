@@ -76,38 +76,38 @@
           function tick(video) {
             if (video.readyState === video.HAVE_ENOUGH_DATA) {
               var imgUrl = '';
-          
+
               canvas.width = video.videoWidth;
               canvas.height = video.videoHeight;
-          
+
               ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
               const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
               const code = jsQR(imageData.data, imageData.width, imageData.height);
-          
+
               if (code || imgUrl !== '') {
                 console.log('Decoded Data:', code.data);
-          
+
                 // 포토이즘
                 if (true) {
                   const hostname = new URL(code.data).hostname;
                   const urlParams = new URLSearchParams(new URL(code.data).search);
                   const id = urlParams.get('id');
-          
+
                   console.log('url :', code.data);
                   console.log('host :', hostname);
                   console.log('id :', id);
                   img_name = String(id) + '.jpg';
-          
+
                   imgUrl = `http://${hostname}/take/${id}.jpg`;
                 }
-          
+
                 console.log('str :', imgUrl);
                 var image = document.getElementById('uploadedImage');
                 image.src = imgUrl;
                 stream.getTracks().forEach(track => track.stop()); // 카메라 스트림 중지
                 canvas.style.display = 'none';
                 image.style.display = 'block';
-          
+
                 fetch(imgUrl)
                   .then(response => response.blob())
                   .then(blob => {
@@ -135,6 +135,7 @@
                   .catch(error => {
                     console.error('Error:', error);
                   });
+              console.log('cccccccccccccccccccccccccc');
               }
             }
             requestAnimationFrame(() => tick(video));

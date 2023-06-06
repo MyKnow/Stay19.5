@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}?after">
+
+    <style>
+        body {
+                background-image: linear-gradient(to top left, #D2D0D0, #D2A4A8);
+                background-size: cover;
+                padding: 20px;
+                font-family: 'aGoEunGeulCciM';
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+    </style>
+</head>
+
+<body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js" integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+    <script>
+        Kakao.Auth.setAccessToken('aa4f2cb7ffd0e8ced07032bfa9361f57');
+    </script>
+
+    <script>
+        Kakao.init('aa4f2cb7ffd0e8ced07032bfa9361f57');
+        console.log(Kakao.isInitialized()); // sdk초기화여부판단
+        console.log("!!");
+        //카카오로그인
+        function kakaoLogin() {
+            console.log("!!");
+            Kakao.Auth.authorize({
+                redirectUri: 'http://127.0.0.1:8000/oauth/redirect',
+            });
+        }
+
+        function getCookie(name) {
+        const value = "; " + document.cookie;
+        const parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+      }
+    </script>
+    <div class="ccontainer">
+        <div class="row">
+            <div class="col-12">
+                <img src="{%static 'images/login/login_images.png' %}" alt = "로고" class = "logo">
+            </div>
+            <div class="col-12">
+                <div class="subtitle">네 컷 사진 집합 서비스</div>
+                <div class="title">STAY 19.5</div>
+                <a href="#" class="login-button" onclick="kakaoLogin()">                                                                       <!--카카오로 로그인 링크 수정 해야 함-->
+                    <span class = "login-button-text">카카오로 로그인</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

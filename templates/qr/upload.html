@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stay 19.5 | Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/qr.css' %}?after">
+
+</head>
+<body>
+    <header>
+        <nav>
+            {% include "bar.html" %}
+        </nav>
+    </header>
+
+    <div id="container">
+        <canvas id="canvas"></canvas>
+        <div id="result"></div>
+        <img id="img" style="display: none;">
+    </div>
+
+    <footer>
+        <nav class="navbar">
+            <a class="nav-link" href="/main">
+                <img src="{% static 'images/navigation/home.png' %}" alt="Main">
+                메인
+            </a>
+            <a class="nav-link" href="/map">
+                <img src="{% static 'images/navigation/marker.png' %}" alt="Map">
+                지도
+            </a>
+            <a class="nav-link nav-color" href="/upload">
+                <img src="{% static 'images/navigation/camera (1).png' %}" alt="Upload">
+                업로드
+            </a>
+            <a class="nav-link" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image.png' %}" alt="Gallery">
+                갤러리
+            </a>
+            <a class="nav-link" href="/info">
+                <img src="{% static 'images/navigation/user.png' %}" alt="My">
+                MY
+            </a>
+        </nav>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+    <script src="{% static '/js/qr.js' %}"></script>
+</body>
+</html>

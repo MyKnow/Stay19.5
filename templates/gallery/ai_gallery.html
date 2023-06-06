@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stay 19.5 | Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            {% include "bar.html" %}
+        </nav>
+    </header>
+
+
+    <div class="container-fluid gallery-container">
+        <div class="col-12 gallery-images">
+            <a href="/photo/1">
+                <img class="ai-image" src="{% static 'cropped_img/1.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/2">
+                <img class="ai-image" src="{% static 'cropped_img/2.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/3">
+                <img class="ai-image" src="{% static 'cropped_img/3.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/4">
+                <img class="ai-image" src="{% static 'cropped_img/4.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/5">
+                <img class="ai-image" src="{% static 'cropped_img/5.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/6">
+                <img class="ai-image" src="{% static 'cropped_img/6.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/7">
+                <img class="ai-image" src="{% static 'cropped_img/7.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/8">
+                <img class="ai-image" src="{% static 'cropped_img/8.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/9">
+                <img class="ai-image" src="{% static 'cropped_img/9.jpg' %}" alt="Image">
+            </a>
+            <a href="/photo/10">
+                <img class="ai-image" src="{% static 'cropped_img/10.jpg' %}" alt="Image">
+            </a>
+
+        </div>
+    </div>
+
+
+    <footer>
+        <nav class="navbar">
+            <a class="nav-link" href="/main">
+                <img src="{% static 'images/navigation/home.png' %}" alt="Main">
+                메인
+            </a>
+            <a class="nav-link" href="/map">
+                <img src="{% static 'images/navigation/marker.png' %}" alt="Map">
+                지도
+            </a>
+            <a class="nav-link" href="/upload">
+                <img src="{% static 'images/navigation/camera.png' %}" alt="Upload">
+                업로드
+            </a>
+            <a class="nav-link  nav-color" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image (1).png' %}" alt="Gallery">
+                갤러리
+            </a>
+            <a class="nav-link" href="/info">
+                <img src="{% static 'images/navigation/user.png' %}" alt="My">
+                MY
+            </a>
+        </nav>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stay 19.5 | Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'jquery-3.7.0.min.js' %}?after"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}?after">
+</head>
+
+<body>
+    <header>
+        <nav>
+            {% include "bar.html" %}
+        </nav>
+    </header>
+
+    <div class="container-fluid gallery-container">
+        <div class="row">
+            <div class="col-12 text-right">
+                <a class="btn btn-gallery" href="/gallery_ai">
+                    AI GALLERY <img src="{% static 'images/smile.png' %}">
+                </a>
+            </div>
+            <div class="col-12 gallery-images" id="imageContainer">
+                {% for image_url in image_urls %}
+                <a href="{{ image_url }}" target="_blank">
+                    <img class="gallery-image" src="{{ image_url }}" alt="Image">
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <nav class="navbar">
+            <a class="nav-link" href="/main">
+                <img src="{% static 'images/navigation/home.png' %}" alt="Main">
+                메인
+            </a>
+            <a class="nav-link" href="/map">
+                <img src="{% static 'images/navigation/marker.png' %}" alt="Map">
+                지도
+            </a>
+            <a class="nav-link" href="/upload">
+                <img src="{% static 'images/navigation/camera.png' %}" alt="Upload">
+                업로드
+            </a>
+            <a class="nav-link  nav-color" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image (1).png' %}" alt="Gallery">
+                갤러리
+            </a>
+            <a class="nav-link" href="/info">
+                <img src="{% static 'images/navigation/user.png' %}" alt="My">
+                MY
+            </a>
+        </nav>
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // 서버로부터 이미지 URL 리스트를 가져오는 함수
+        function getImageURLs() {
+            fetch("/get_image_urls")
+                .then(response => response.json())
+                .then(data => {
+                    const imageContainer = document.getElementById("imageContainer");
+                    imageContainer.innerHTML = "";
+
+                    data.forEach(imageUrl => {
+                        const anchor = document.createElement("a");
+                        anchor.href = imageUrl;
+                        anchor.target = "_blank";
+
+                        const img = document.createElement("img");
+                        img.src = imageUrl;
+                        img.alt = "Image";
+                        img.classList.add("gallery-image");
+
+                        anchor.appendChild(img);
+                        imageContainer.appendChild(anchor);
+                    });
+
+                    applyImageStyles();
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+
+        function applyImageStyles() {
+            const images = document.querySelectorAll('.gallery-image');
+            images.forEach((image) => {
+                image.style.width = '100px';
+                image.style.height = '100px';
+                image.style.objectFit = 'cover';
+            });
+        }
+
+        window.addEventListener('load', () => {
+            getImageURLs();
+
+            // 이미지 클릭 시 해당 URL로 이동
+            const images = document.querySelectorAll('.gallery-image');
+            images.forEach((image) => {
+                image.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const imageURL = event.target.src;
+                    window.open(imageURL, '_blank');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -32,7 +32,7 @@ def get_valid_faces(faces, input_img):
     # *** [initialize_FaceRecognizerSF] ***
     recognizer = cv.FaceRecognizerSF.create(recognize_onnx_file, "")
     # Threshold for examine similarity
-    cosine_similarity_threshold = 0.263
+    cosine_similarity_threshold = 0.363
     l2_similarity_threshold = 1.128
 
     # List to contain Same face indices
@@ -132,6 +132,8 @@ def detect_faces_in_img(input_img):
         # If no faces are detected, error notice is printed
         assert faces[1] is not None, "Cannot find a face in the input image"
 
+        print("[[[Faces]]]\n", faces)
+        print("\nfaces type :", type(faces))
         # Remove duplicated faces and just leave unique embeddings
         # valid_faces : The list holds unique face embeddings
         detected_valid_faces = get_valid_faces(faces[1], input_img)
@@ -179,8 +181,8 @@ def compare_with_other_images(db_img_url, db_faces, db_labels, image_url, input_
     recognizer = cv.FaceRecognizerSF.create(recognize_onnx_file, "")
 
     # Threshold for examine similarity
-    cosine_similarity_threshold = 0.263
-    l2_similarity_threshold = 1.128
+    cosine_similarity_threshold = 0.363
+    l2_similarity_threshold = 1.290
 
     for i in range(len(input_faces)):
         # Label to be granted
@@ -236,7 +238,7 @@ def compare_with_other_images(db_img_url, db_faces, db_labels, image_url, input_
 '''
 
 
-def facial_recognition_model(img_url, loaded_faces=None):
+def facial_recognition_model(img_url):
     ''' 1. Read uploaded new image '''
     # Bring input image
     response = requests.get(img_url, stream=True).raw
@@ -246,12 +248,8 @@ def facial_recognition_model(img_url, loaded_faces=None):
     ''' 2. Detection & Recognition '''
     # Uploaded image has not been detected
     if input_img is None:
-        # No images in database
-        if loaded_faces is None:
-            sys.exit("*** No images from database ***")
         # No uploaded image, but images exist in database
-        else:
-            sys.exit("*** No input image to compare ***")
+        sys.exit("*** No input image to compare ***")
     # Uploaded image exists
     else:
         # Detecting faces in uploaded image
@@ -260,3 +258,27 @@ def facial_recognition_model(img_url, loaded_faces=None):
 
     return input_faces
 
+def crop_img_and_save(k, image_url, face):
+    response = requests.get(image_url, stream=True).raw
+    input_img = np.asarray(bytearray(response.read()), dtype=np.uint8)
+    input_img = cv.imdecode(input_img, cv.IMREAD_COLOR)
+
+    coords = np.array(face[0:]).astype(np.int32)
+    coords[0] = coords[0] - 200
+    coords[1] = coords[1] - 200
+    if (coords[2] > coords[3]):
+        coords[2] = coords[2] + 300
+        coords[3] = coords[2]
+    else:
+        coords[3] = coords[3] + 300
+        coords[2] = coords[3]
+    x = coords[0]
+    y = coords[1]
+    w = coords[2]
+    h = coords[3]
+    cropped_image = input_img[y:y+h, x:x+w]
+
+    filename = f"{k}.jpg"
+    cropped_img_path = os.path.join(settings.BASE_DIR, 'static', 'cropped_img', filename)
+    print(cropped_img_path)
+    cv.imwrite(cropped_img_path, cropped_image)

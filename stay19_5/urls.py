@@ -23,8 +23,26 @@ from stay.views import upload_image
 
 import stay.views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', stay.views.index, name = 'index'),
-    path('upload/', upload_image, name='upload_image'),
-]
+    path('main/', stay.views.main, name='main'),
+    path('login/', stay.views.login, name='login'),
+    path('info/', stay.views.info, name='info'),
+    path('oauth/redirect/', stay.views.getcode, name='oauth'),
+
+    path('map/', stay.views.map, name='map'),
+    
+    path('upload/', stay.views.index, name = 'index'),
+    path('tjdnjsgudqkqh/', upload_image, name='upload_image'),
+
+    path('gallery/', stay.views.gallery, name='gallery'),
+    path('photo/', stay.views.photo, name='photo'),
+    path('photo/ai', stay.views.photo, name='ai photo'),
+    path('get_image_urls', views.get_image_urls, name='get_image_urls'),
+    path('gallery_ai/', stay.views.ai_gallery, name='gallery_ai'),
+    path('photo/<int:image_id>/', stay.views.image_detail, name='image_detail'),
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,6 +11,71 @@ import sys
 import os
 import json
 from .face_detection_and_recognition import *
+from django.http import JsonResponse
+from django.db import models
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def main(request):
+    return render(request, 'common/main.html')
+
+
+def login(request):
+    return render(request, 'common/login.html')
+
+
+def info(request):
+    # 세션에서 정보 가져오기
+    id = request.session.get('id')
+    nickname = request.session.get('nickname')
+    thumbnail_image = request.session.get('image')
+
+    return render(request, 'common/info.html', {'id': id, 'nickname': nickname, 'thumbnail_image': thumbnail_image})
+
+
+def getcode(request):
+    code = request.GET.get('code')
+    # REST API를 이용해 토큰 발급 받아옴 (카카오에게)
+    requests.post('https://kauth.kakao.com/oauth/token')
+    data = {'grant_type': "authorization_code",
+            'client_id': 'aa4f2cb7ffd0e8ced07032bfa9361f57',
+            'redirect_uri': 'http://127.0.0.1:8000/oauth/redirect',
+            'code': code}
+    headers = {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'}
+    res = requests.post('https://kauth.kakao.com/oauth/token', data=data, headers=headers)
+    token_json = res.json()
+    print(token_json)
+
+    # REST API를 이용해 토큰으로 정보를 조회
+    access_token = token_json['access_token']
+
+    headers = {'Authorization': 'Bearer ' + access_token,
+               'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'}
+    res = requests.get("https://kapi.kakao.com//v2/user/me", headers=headers)
+    profile_json = res.json()
+
+    id = profile_json['id']  # ID 뽑아내기
+    nickname = profile_json['properties']['nickname']  # 닉네임 뽑아내기
+    image = profile_json['properties']['profile_image']  # 이미지 뽑아내기
+    print(id)
+    print(nickname)
+    print(image)
+
+    request.session['id'] = id
+    request.session['nickname'] = nickname
+    request.session['image'] = image
+
+    return redirect('info')
+
+def gallery(request):
+    return render(request, 'gallery/gallery.html')
+
+def photo(request):
+    return render(request, 'gallery/photo.html')
+
+def map(request):
+    return render(request, 'map/map.html')
 
 connection = pymysql.connect(
     host=settings.DB_HOST,
@@ -23,7 +88,7 @@ detect_onnx_file = os.path.join(settings.STAY_APP_DIR, 'ai_model', 'face_detecti
 recognize_onnx_file = os.path.join(settings.STAY_APP_DIR, 'ai_model', 'face_recognition_sface_2021dec.onnx')
 
 def index(request):
-    return render(request, 'stay/index.html')
+    return render(request, 'qr/index.html')
 
 @csrf_exempt
 def upload_image(request):
@@ -44,7 +109,7 @@ def upload_image(request):
             id_token = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
 
             people_values = [[0] * 15 for _ in range(6)]
-            results = facial_recognition_model(image_url, loaded_faces=None)
+            results = facial_recognition_model(image_url)
 
             for i, result in enumerate(results):
                 if i < len(people_values):
@@ -53,7 +118,6 @@ def upload_image(request):
                 else:
                     break
             print(people_values)
-            # name = "원형" #카카오 아이디 토큰 넣을거임
 
             # 이미지 URL을 MySQL 등에 저장하고 필요한 로직을 수행
 
@@ -64,7 +128,7 @@ def upload_image(request):
                 print(1)
                 sql = "INSERT INTO real_final_stay2 (address, people_1, people_2, people_3, people_4, people_5, people_6) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 print(1)
-                data = (image_url, *map(json.dumps, people_values[:6]))
+                data = (image_url, *[json.dumps(value) for value in people_values[:6]])
                 print(1)
                 cursor.execute(sql, data)
                 print(1)
@@ -87,7 +151,7 @@ def upload_image(request):
             - 모든 얼굴 정보에 대한 label값 부여 완료 후, people_number, people_value 부여
             
             '''
-            for i in range(12,id_num): # 9번째 테이블 부터 시작해서 그럼
+            for i in range(41,id_num): # 41번째 테이블 부터 시작해서 그럼
                 image_addresses = get_field_values(Stay_model, 'address', i)
                 people_1_values = get_field_values(Stay_model, 'people_1', i)
                 people_2_values = get_field_values(Stay_model, 'people_2', i)
@@ -215,4 +279,66 @@ def get_max_value_across_fields(model):
         max_val = max(max_val, max(field_values, default=0))
     return max_val
 
+def get_image_urls(request):
+    # 데이터베이스에서 이미지 URL 조회
+    image_urls = Stay_model.objects.values_list('address', flat=True)
 
+    # 이미지 URL을 리스트로 변환하여 JSON 응답으로 반환
+    return JsonResponse(list(image_urls), safe=False)
+
+def ai_gallery(request):
+    stays = Stay_model.objects.all()
+    addresses = []  # 주소 리스트 초기화
+    k_list = []
+    for stay in stays:
+        address_row = []  # 주소 행 초기화
+        k = 1
+        while k <= get_max_value_across_fields(Stay_model):  # 1부터 10까지 반복
+            found = False  # 해당하는 값이 있는지 여부 확인을 위한 변수
+            for i in range(1, 7):  # 1부터 6까지 반복
+                field_name = f"people_{i}_val"
+                face_list = f"people_{i}"
+                face_value = getattr(stay,face_list)
+                if hasattr(stay, field_name):  # 필드가 존재하는지 확인
+                    value = getattr(stay, field_name)
+                    if int(value) == k and int(value) not in k_list:  # k 값과 일치하는 경우
+                        address_row.append(stay.address)
+                        print(k)
+                        k_list.append(k)
+                        print(face_value)
+                        # k = 1 일경우 value 1,  리스트 값= f"people_i"
+                        crop_img_and_save(k, stay.address, face_value)
+                        found = True  # 해당하는 값이 있음을 표시
+                        break
+            k += 1
+        for address in address_row:
+            addresses.append(address)
+    context = {
+        'addresses': addresses,
+    }
+    print(addresses)
+
+    return render(request, 'gallery/ai_gallery.html', context)
+
+
+def image_detail(request, image_id):
+    image_id = int(image_id)  # image_id를 정수로 변환
+
+    stays = Stay_model.objects.all()
+    urls = []
+
+    for stay in stays:
+        for i in range(1, 7):
+            field_name = f"people_{i}_val"
+            if hasattr(stay, field_name):
+                value = getattr(stay, field_name)
+                if int(value) == int(image_id):
+                    urls.append((stay.address, image_id))
+                    break
+    print('여기')
+    print(urls)
+    context = {
+        'urls': urls,
+    }
+
+    return render(request, 'gallery/photo.html', context)

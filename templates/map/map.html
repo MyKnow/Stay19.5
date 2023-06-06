@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stay 19.5 | Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'jquery-3.7.0.min.js' %}?after"></script>                                 <!-- 자바스크립트 추가!!! -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}?after">
+
+</head>
+<body>
+    <header>
+        <nav>
+            {% include "bar.html" %}
+        </nav>
+    </header>
+
+    <div class="location">위치 정보를 동의해주세요.</div>
+    <div class="map_container">
+        <div class="map_wrap">
+            <div id="map"></div>
+                <ul id="keyword">
+                    <li id="하루필름" data-order="0">
+                        <span class="keyword_bg bank"></span>
+                        하루필름
+                    </li>
+                    <li id="인생네컷" data-order="1">
+                        <span class="keyword_bg mart"></span>
+                        인생네컷
+                    </li>
+                    <li id="포토이즘" data-order="2">
+                        <span class="keyword_bg pharmacy"></span>
+                        포토이즘
+                    </li>
+                    <li id="모노맨션" data-order="3">
+                        <span class="keyword_bg oil"></span>
+                        모노맨션
+                    </li>
+                    <li id="비룸스튜디오" data-order="4">
+                        <span class="keyword_bg cafe"></span>
+                        비룸<br>스튜디오
+                    </li>
+                    <li id="즉석사진" data-order="5">
+                        <span class="keyword_bg store"></span>
+                        즉석사진
+                    </li>
+                </ul>
+        </div>
+    </div>
+
+    <footer>
+        <nav class="navbar">
+            <a class="nav-link" href="/main">
+                <img src="{% static 'images/navigation/home.png' %}" alt="Main">
+                메인
+            </a>
+            <a class="nav-link nav-color" href="/map">
+                <img src="{% static 'images/navigation/marker (1).png' %}" alt="Map">
+                지도
+            </a>
+            <a class="nav-link" href="/upload">
+                <img src="{% static 'images/navigation/camera.png' %}" alt="Upload">
+                업로드
+            </a>
+            <a class="nav-link" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image.png' %}" alt="Gallery">
+                갤러리
+            </a>
+            <a class="nav-link" href="/info">
+                <img src="{% static 'images/navigation/user.png' %}" alt="My">
+                MY
+            </a>
+        </nav>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=aa4f2cb7ffd0e8ced07032bfa9361f57&libraries=services"></script>
+    <script src="/static/js/map.js"></script>
+</body>
+</html>

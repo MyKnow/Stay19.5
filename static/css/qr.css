@@ -1,0 +1,57 @@
+#canvas {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    margin-right: 10px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    object-fit:cover;
+    max-width: 80vw;
+    max-height: 70vh;
+}
+
+#qrResult {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.qr-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 4px solid green;
+    box-sizing: border-box;
+}
+
+.qr-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: green;
+}
+
+.qr-corner.top-left {
+    top: -4px;
+    left: -4px;
+}
+
+.qr-corner.top-right {
+    top: -4px;
+    right: -4px;
+}
+
+.qr-corner.bottom-left {
+    bottom: -4px;
+    left: -4px;
+}
+
+.qr-corner.bottom-right {
+    bottom: -4px;
+    right: -4px;
+}

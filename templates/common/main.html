@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <title>Stay 19.5 | Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'jquery-3.7.0.min.js' %}?after"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}?after">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            {% include "bar.html" %}
+        </nav>
+    </header>
+    <div class = "main-container">
+        <h1>인생 네 컷 종합 서비스 | STAY 19.5 사용법</h1>
+        <div class="container">
+            <div class="card-image">
+                <img src="{% static '/images/main/map.png' %}" alt="지도 기능">
+            </div>
+            <div class="card-description">
+                <div class="card">
+                    <h3>지도 기능</h3>
+                    <p>카카오 맵을 통해 가까운 네 컷 사진관을 찾아보세요.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card-description">
+                <div class="card">
+                    <h3>업로드 기능</h3>
+                    <p>웹 사이트 내 카메라 기능을 사용하여 사진을 바로 저장하고 업로드해보세요.</p>
+                </div>
+            </div>
+            <div class="card-image">
+                <img src="{% static '/images/main/upload.png' %}" alt="업로드 기능">
+            </div>
+        </div>
+        <div class="container">
+            <div class="card-image">
+                <img src="{% static '/images/main/gallery.png' %}" alt="갤러리 기능">
+            </div>
+            <div class="card-description">
+                <div class="card">
+                    <h3>갤러리 기능</h3>
+                    <p>저장한 사진을 한 눈에 모아보세요. AI 기능으로 인물별로 분류해보세요.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <nav class="navbar">
+            <a class="nav-link nav-color" href="/main">
+                <img src="{% static 'images/navigation/home (1).png' %}" alt="Main">
+                메인
+            </a>
+            <a class="nav-link" href="/map">
+                <img src="{% static 'images/navigation/marker.png' %}" alt="Map">
+                지도
+            </a>
+            <a class="nav-link" href="/upload">
+                <img src="{% static 'images/navigation/camera.png' %}" alt="Upload">
+                업로드
+            </a>
+            <a class="nav-link" href="/gallery">
+                <img src="{% static 'images/navigation/copy-image.png' %}" alt="Gallery">
+                갤러리
+            </a>
+            <a class="nav-link" href="/info">
+                <img src="{% static 'images/navigation/user.png' %}" alt="My">
+                MY
+            </a>
+        </nav>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

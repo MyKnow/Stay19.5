@@ -1,0 +1,454 @@
+@font-face {
+    font-family: 'aGoEunGeulCciM';
+    src: url("./fonts/aGoEunGeulCciM.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'NanumGothic';
+    src: url("./fonts/NanumGothic.woff") format('woff');
+}
+
+body {
+    background-color: #FFFFFF;
+    font-family: 'NanumGothic', sans-serif;
+    min-height: 100vh;
+}
+
+.ccontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: clac(100vh-120px);
+}
+
+h1 {
+    color: #E1BBB7;
+    font-size: 20px;
+    font-family: 'aGoEunGeulCciM';
+    margin : 20px 0px;
+    font-weight: 600;
+    text-shadow: 1.2px 1.2px rgba(181, 88, 78, 1);
+    padding : 10px;
+    margin-left : 15vw;
+}
+
+/* ===========================  login css  ============================== */
+
+.logo {
+    width: 250px;
+    height: 290px;
+    object-fit: cover;
+}
+
+.subtitle {
+    color: white;
+    text-align: center;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    font-size: 28px;
+    margin-top: 20px;
+    text-shadow: 2px 2px rgba(251, 108, 125, 1);
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    font-size: 60px;
+    text-shadow: 3px 3px rgba(251, 108, 125, 1);
+    font-weight: 700;
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    background-color: #FBE000;
+    border: none;
+    border-radius: 30px;
+}
+
+.login-button-text {
+    font-family: 'NanumGothic', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    line-height: 1;
+    padding: 0 20px;
+}
+
+/* ===========================  main css  ================================ */
+
+.container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: calc(33.33vh - 150px);
+    weight: 100%;
+    margin-bottom: 15px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: clac(100vh-120px);
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    top: 20%; /* 컨테이너 상단에서 20% 위치 */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #D9D9D9; /* 원하는 배경색 설정 */
+    z-index: -1; /* 배경을 컨테이너 뒤로 보내기 위해 z-index를 -1로 설정 */
+}
+
+.card-image {
+    width: 120px;
+    margin: 0px 10px;
+}
+
+.card-image img {
+    width: 100%;
+}
+
+.card-description {
+    flex: 1;
+    min-height: calc(100vh/3 - 90px);
+    font-family: 'NanumGothic', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.card-description h3 {
+    color: #DF938D;
+    text-shadow: 3px 0px rgba(124, 26, 20, 1);
+    font-size: 32px;
+    padding: 0 10px;
+    font-weight: 700;
+}
+
+.card-description p {
+    font-size: 18px;
+    margin-top: 10px;
+    height: 100px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================  navigation css  =============================== */
+
+.navbar_front {
+    background-image: linear-gradient(to top, #E1BEBB, #DF938D);
+    height: 60px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo {
+    height: 57px;
+    display: block;
+    margin: 0 auto;
+}
+
+.dotted-line-left {
+    border-top: 4px dotted white;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.dotted-line-right {
+    border-top: 4px dotted white;
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding-bottom: 60px;
+    font-family: 'NanumGothic', sans-serif;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 12px;
+    color: black;
+}
+
+.nav-link.nav-color {
+    color: #DF938D;
+}
+
+.nav-link img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+/* =============================  info css  ================================ */
+
+
+.profile-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top : 70px;
+    margin-bottom: 20px;
+}
+
+.name-box {
+    background-color: #D9D9D9;
+    padding: 20px 10px 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-box {
+    background-color: #D9D9D9;
+    padding: 20px 10px 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-button {
+    background-color: #DF938D;
+    color: white;
+    font-family: 'aGoEunGeulCciM', sans-serif;
+    border: none;
+    padding: 10px 10px 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =================================  지도 css  ======================== */
+
+.location {
+    background-color: #D9D9D9;
+    color: black;
+    padding: 10px;
+    width:100%;
+    text-align: center;
+    font-size: 14px;
+
+}
+
+.map_container {
+    text-align: center;
+    height:100%;
+    position:relative;
+}
+
+.map_wrap {
+    height:80vh;
+}
+
+/* ==================================  업로드css  ======================== */
+
+#qr-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+}
+
+#status {
+    color: #E1BBB7;
+    font-size: 24px;
+    font-family: 'aGoEunGeulCciM';
+    font-weight: 600;
+    text-shadow: 1.2px 1.2px rgba(181, 88, 78, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas {
+    margin-bottom : 10px;
+    border: 16px solid #E1BBB7;
+    box-sizing: border-box;
+}
+
+#upload-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+}
+
+#uploadedImage {
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#result-msg-1 {
+    color: #E1BBB7;
+    font-size: 32px;
+    font-family: 'aGoEunGeulCciM';
+    font-weight: 600;
+    text-shadow: 1.2px 1.2px rgba(181, 88, 78, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#result-msg-2 {
+    color: black;
+    font-size: 20px;
+    font-family: 'NanumGothic';
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ==================================  갤러리css  ======================== */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top : 20px;
+}
+
+.btn-gallery {
+    background-color: #DF938D;
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gallery-images {
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-height: calc(100vh - 210px);
+}
+
+.col-12.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-height: calc(100vh - 210px);
+}
+
+.gallery-image {
+    width: 30vw;
+    height: 30vw;
+    object-fit: cover;
+    margin: 20px 0;
+}
+
+.photo-image {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    object-fit: cover;
+}
+
+.ai-image {
+    width: 30vw;
+    height: 30vw;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+/* ==================================  스크롤 바  ======================== */
+
+.gallery-images::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
+}
+
+.gallery-images::-webkit-scrollbar-track {
+  background-color: #D9D9D9; /* 스크롤바 트랙의 배경색 */
+  border-radius: 8px;
+}
+
+.gallery-images::-webkit-scrollbar-thumb {
+  background-color: #DF938D; /* 스크롤바 썸의 배경색 */
+  border-radius: 8px;
+}

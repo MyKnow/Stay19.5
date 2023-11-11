@@ -118,7 +118,7 @@ $ python -m pip3 install --upgrade pip
 ### 설치
 ```
 $ cd (directory path to clone our github repository)
-$ git clone https://github.com/kolo4917/stay19.5
+$ git clone https://github.com/myknow/stay19.5
 ```
 
 
